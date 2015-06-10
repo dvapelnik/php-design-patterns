@@ -10,8 +10,11 @@
   ],
   "autoload": {
     "psr-4": {
-      "Patterns\\": "src\\Patterns"
+      "Patterns\\": "src\\Patterns",
+      "PatternsTests\\": "tests\\PatternsTests"
     }
   },
-  "require": {}
+  "require": {
+    "phpunit/phpunit": "^4.7"
+  }
 }
