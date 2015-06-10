@@ -1,12 +1,17 @@
 {
-    "name": "dvapelnik/php-patterns",
-    "description": "OOP design patterns on PHP",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Dmitry Vapelnik",
-            "email": "dvapelnik@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "dvapelnik/php-patterns",
+  "description": "OOP design patterns on PHP",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dmitry Vapelnik",
+      "email": "dvapelnik@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Patterns\\": "src\\Patterns"
+    }
+  },
+  "require": {}
 }
