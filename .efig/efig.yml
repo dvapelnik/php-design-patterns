@@ -1,0 +1,5 @@
+web:
+    image: dvapelnik/docker-lap:debian.jessie.php56
+    volumes:
+        - ../:/var/www/
+        - httpd.conf:/etc/apache2/sites-enabled/000-default
