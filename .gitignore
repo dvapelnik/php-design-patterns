@@ -63,3 +63,5 @@ composer.lock
 !.efig/xd_profile/.gitkeep
 .efig/xd_trace/*
 !.efig/xd_trace/.gitkeep
+public/coverege/*
+!public/coverege/.gitkeep
