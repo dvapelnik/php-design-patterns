@@ -14,6 +14,9 @@
       "PatternsTests\\": "tests\\PatternsTests"
     }
   },
+  "scripts": {
+    "tests": "php vendor/bin/phpunit --coverage-html ./public/coverege/"
+  },
   "require": {
     "phpunit/phpunit": "^4.7"
   }
