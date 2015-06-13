@@ -11,7 +11,9 @@
   "autoload": {
     "psr-4": {
       "Patterns\\": "src\\Patterns",
-      "PatternsTests\\": "tests\\PatternsTests"
+      "PatternsTests\\": "tests\\PatternsTests",
+      "Maze\\": "src\\Maze",
+      "MazeTests\\": "tests\\MazeTests"
     }
   },
   "scripts": {
