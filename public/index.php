@@ -1,12 +1,12 @@
 <?php
-use Maze\Map\Door;
-use Maze\Map\MapSite;
-use Maze\Map\Room;
-use Maze\Map\Wall;
-use Maze\Maze;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\SimpleMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeGame;
 
 require_once('../vendor/autoload.php');
 
 
+$simpleFactory = new SimpleMazeFactory();
+
+$maze = MazeGame::CreateMaze($simpleFactory);
 
 var_dump($maze);
