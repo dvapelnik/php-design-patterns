@@ -12,8 +12,8 @@ class MazeGameTest extends PHPUnit_Framework_TestCase
     public function factoryProvider()
     {
         return array(
-            array(new SimpleMazeFactory()),
-            array(new BombedMazeFactory()),
+            array(SimpleMazeFactory::getInstance()),
+            array(BombedMazeFactory::getInstance()),
         );
     }
 

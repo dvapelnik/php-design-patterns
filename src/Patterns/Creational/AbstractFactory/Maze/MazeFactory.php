@@ -6,11 +6,18 @@ use Maze\Map\Room;
 use Maze\Map\Wall;
 use Maze\Maze;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactoryInterface;
+use Patterns\Creational\Singleton\SingletonTrait;
 
+/**
+ * Class MazeFactory
+ * @package Patterns\Creational\AbstractFactory\Maze
+ */
 class MazeFactory implements MazeFactoryInterface
 {
+    use SingletonTrait;
+
     /** @return Maze */
-    public function makeMaze()
+    final public function makeMaze()
     {
         return new Maze();
     }
