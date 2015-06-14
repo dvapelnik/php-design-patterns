@@ -4,9 +4,7 @@ namespace Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze;
 use Maze\Map\Door;
 use Maze\Map\Room;
 use Maze\Map\Wall;
-use Maze\Maze;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactory;
-use Patterns\Creational\AbstractFactory\Maze\MazeFactoryInterface;
 
 class BombedMazeFactory extends MazeFactory
 {
