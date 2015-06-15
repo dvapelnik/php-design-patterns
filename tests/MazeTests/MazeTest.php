@@ -6,6 +6,7 @@ use Maze\Map\SimpleMaze\Room;
 use Maze\Maze;
 use Maze\MazeGame;
 use PHPUnit_Framework_TestCase;
+use ReflectionClass;
 
 class MazeTest extends PHPUnit_Framework_TestCase
 {
@@ -43,6 +44,44 @@ class MazeTest extends PHPUnit_Framework_TestCase
             array(
                 function () {
                 }
+            ),
+        );
+    }
+
+    public function wrongPlaceArrayByCountProvider()
+    {
+        return array(
+            array(array(0, 1, 2)),
+            array(array(0)),
+        );
+    }
+
+    public function wrongPlaceArrayByTypeProvider()
+    {
+        return array(
+            array(array('a', 0)),
+            array(array(0, 'a')),
+            array(array(null, 0)),
+            array(array(0, null)),
+            array(array(0.00, 0)),
+            array(array(0, 0.00)),
+            array(array(new Exception(), 0)),
+            array(array(0, new Exception())),
+            array(array(array(), 0)),
+            array(array(0, array())),
+            array(
+                array(
+                    function () {
+                    },
+                    0
+                )
+            ),
+            array(
+                array(
+                    0,
+                    function () {
+                    }
+                )
             ),
         );
     }
@@ -106,5 +145,53 @@ class MazeTest extends PHPUnit_Framework_TestCase
     public function testCreateMaze()
     {
         $this->assertInstanceOf('\Maze\Maze', $this->_mazeGame->createMaze());
+    }
+
+    /**
+     * @dataProvider wrongPlaceArrayByCountProvider
+     *
+     * @expectedException \Maze\MazeException
+     * @expectedExceptionMessage placeArray should have two members
+     */
+    public function testAddRoomWithWrongPlaceArrayByCount($placeArray)
+    {
+        $maze = new Maze();
+
+        $maze->addRoom(new Room(0), $placeArray);
+    }
+
+    /**
+     * @dataProvider wrongPlaceArrayByTypeProvider
+     *
+     * @expectedException \Maze\MazeException
+     * @expectedExceptionMessage placeArray`s members should be an integer
+     */
+    public function testAddRoomWithWrongPlaceArrayByType($placeArray)
+    {
+        $maze = new Maze();
+
+        $maze->addRoom(new Room(0), $placeArray);
+    }
+
+    public function testGetRoomByPlace()
+    {
+        $maze = new Maze();
+
+        $room = new Room(0);
+
+        $maze->addRoom($room, array(0, 0));
+
+        $this->assertEquals($room, $maze->getRoomByPlace(array(0, 0)));
+    }
+
+    public function testMakeIndex()
+    {
+        $maze = new Maze();
+
+        $reflectedObject = new ReflectionClass($maze);
+        $reflectedMethod = $reflectedObject->getMethod('makeIndex');
+        $reflectedMethod->setAccessible(true);
+
+        $this->assertEquals('0-0', $reflectedMethod->invoke($maze, array(0, 0)));
     }
 }
