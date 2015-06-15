@@ -6,7 +6,7 @@ use \Maze\MazeGame as MazeGameOriginal;
 
 class MazeGame extends MazeGameOriginal
 {
-    public static function CreateMaze(MazeFactoryInterface $mazeFactory)
+    public function createMaze(MazeFactoryInterface $mazeFactory)
     {
         $maze = $mazeFactory->makeMaze();
         $room1 = $mazeFactory->makeRoom(0);

@@ -8,7 +8,7 @@ use Maze\Map\Wall;
 
 class MazeGame
 {
-    public static function CreateMaze()
+    public function createMaze()
     {
         $maze = new Maze();
         $room1 = new Room(1);

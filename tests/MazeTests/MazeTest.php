@@ -9,6 +9,14 @@ use PHPUnit_Framework_TestCase;
 
 class MazeTest extends PHPUnit_Framework_TestCase
 {
+    /** @var  MazeGame */
+    private $_mazeGame;
+
+    public function setUp()
+    {
+        $this->_mazeGame = new MazeGame();
+    }
+
     public function wrongRoomProvider()
     {
         return array(
@@ -97,6 +105,6 @@ class MazeTest extends PHPUnit_Framework_TestCase
 
     public function testCreateMaze()
     {
-        $this->assertInstanceOf('\Maze\Maze', MazeGame::CreateMaze());
+        $this->assertInstanceOf('\Maze\Maze', $this->_mazeGame->createMaze());
     }
 }
