@@ -1,7 +1,7 @@
 <?php
 namespace Maze;
 
-use Maze\Map\Room;
+use Maze\Map\SimpleMaze\Room;
 
 class Maze
 {

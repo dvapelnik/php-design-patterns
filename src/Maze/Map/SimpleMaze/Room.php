@@ -1,7 +1,9 @@
 <?php
-namespace Maze\Map;
+namespace Maze\Map\SimpleMaze;
 
 use Exception;
+use Maze\Map\MapSite;
+use Maze\Map\MapSiteException;
 
 class Room extends MapSite
 {

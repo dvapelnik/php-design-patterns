@@ -1,10 +1,10 @@
 <?php
 namespace Maze;
 
-use Maze\Map\Door;
 use Maze\Map\MapSite;
-use Maze\Map\Room;
-use Maze\Map\Wall;
+use Maze\Map\SimpleMaze\Door;
+use Maze\Map\SimpleMaze\Room;
+use Maze\Map\SimpleMaze\Wall;
 
 class MazeGame
 {

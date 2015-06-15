@@ -1,9 +1,9 @@
 <?php
 namespace Patterns\Creational\AbstractFactory\Maze;
 
-use Maze\Map\Door;
-use Maze\Map\Room;
-use Maze\Map\Wall;
+use Maze\Map\SimpleMaze\Door;
+use Maze\Map\SimpleMaze\Room;
+use Maze\Map\SimpleMaze\Wall;
 use Maze\Maze;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactoryInterface;
 use Patterns\Creational\Singleton\SingletonTrait;

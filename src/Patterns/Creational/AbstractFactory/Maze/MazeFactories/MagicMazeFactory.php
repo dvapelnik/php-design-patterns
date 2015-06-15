@@ -1,6 +1,9 @@
 <?php
-namespace Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMaze;
+namespace Patterns\Creational\AbstractFactory\Maze\MazeFactories;
 
+use Maze\Map\MagicMaze\MagicDoor;
+use Maze\Map\MagicMaze\MagicRoom;
+use Maze\Map\MagicMaze\MagicWall;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactory;
 
 class MagicMazeFactory extends MazeFactory

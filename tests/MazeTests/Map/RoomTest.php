@@ -2,8 +2,8 @@
 namespace MazeTests\Map;
 
 use Exception;
-use Maze\Map\Room;
-use Maze\Map\Wall;
+use Maze\Map\SimpleMaze\Room;
+use Maze\Map\SimpleMaze\Wall;
 use PHPUnit_Framework_TestCase;
 
 class RoomTest extends PHPUnit_Framework_TestCase
@@ -59,7 +59,7 @@ class RoomTest extends PHPUnit_Framework_TestCase
     {
         $room = new Room(0);
 
-        $this->assertInstanceOf('Maze\Map\Room', $room);
+        $this->assertInstanceOf('Maze\Map\SimpleMaze\Room', $room);
     }
 
     /**

@@ -1,8 +1,9 @@
 <?php
 namespace PatternsTests\Creational\AbstractFactory\Maze;
 
-use Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze\BombedMazeFactory;
-use Patterns\Creational\AbstractFactory\Maze\MazeFactories\SimpleMaze\SimpleMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\SimpleMazeFactory;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactoryInterface;
 use Patterns\Creational\AbstractFactory\Maze\MazeGame;
 use PHPUnit_Framework_TestCase;
@@ -22,6 +23,7 @@ class MazeGameTest extends PHPUnit_Framework_TestCase
         return array(
             array(SimpleMazeFactory::getInstance()),
             array(BombedMazeFactory::getInstance()),
+            array(MagicMazeFactory::getInstance()),
         );
     }
 

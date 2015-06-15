@@ -1,8 +1,8 @@
 <?php
 namespace MazeTests\Map;
 
-use Maze\Map\Door;
-use Maze\Map\Room;
+use Maze\Map\SimpleMaze\Door;
+use Maze\Map\SimpleMaze\Room;
 use PHPUnit_Framework_TestCase;
 
 class DoorTest extends PHPUnit_Framework_TestCase
@@ -11,7 +11,7 @@ class DoorTest extends PHPUnit_Framework_TestCase
     {
         $door = new Door(new Room(1), new Room(2));
 
-        $this->assertInstanceOf('\Maze\Map\Door', $door);
+        $this->assertInstanceOf('\Maze\Map\SimpleMaze\Door', $door);
     }
 
     /**

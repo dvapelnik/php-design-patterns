@@ -1,5 +1,8 @@
 <?php
-namespace Maze\Map;
+namespace Maze\Map\SimpleMaze;
+
+use Maze\Map\MapSite;
+use Maze\Map\MapSiteException;
 
 class Door extends MapSite
 {

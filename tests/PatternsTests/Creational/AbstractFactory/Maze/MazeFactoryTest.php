@@ -1,9 +1,9 @@
 <?php
 namespace PatternsTests\Creational\AbstractFactory\Maze;
 
-use Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze\BombedMazeFactory;
-use Patterns\Creational\AbstractFactory\Maze\MazeFactories\SimpleMaze\SimpleMazeFactory;
-use Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMaze\MagicMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\SimpleMazeFactory;
+use Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMazeFactory;
 use PHPUnit_Framework_TestCase;
 
 class MazeFactoryTest extends PHPUnit_Framework_TestCase
@@ -22,12 +22,12 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                     array(
                         'method'        => 'makeWall',
                         'arguments'     => array(),
-                        'expectedClass' => '\Maze\Map\Wall',
+                        'expectedClass' => '\Maze\Map\SimpleMaze\Wall',
                     ),
                     array(
                         'method'        => 'makeRoom',
                         'arguments'     => array(0),
-                        'expectedClass' => '\Maze\Map\Room',
+                        'expectedClass' => '\Maze\Map\SimpleMaze\Room',
                     ),
                     array(
                         'method'        => 'makeDoor',
@@ -35,7 +35,7 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                             SimpleMazeFactory::getInstance()->makeRoom(0),
                             SimpleMazeFactory::getInstance()->makeRoom(1)
                         ),
-                        'expectedClass' => '\Maze\Map\Door',
+                        'expectedClass' => '\Maze\Map\SimpleMaze\Door',
                     ),
                 )
             ),
@@ -50,12 +50,12 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                     array(
                         'method'        => 'makeWall',
                         'arguments'     => array(),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze\BombedWall',
+                        'expectedClass' => '\Maze\Map\BombedMaze\BombedWall',
                     ),
                     array(
                         'method'        => 'makeRoom',
                         'arguments'     => array(0),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze\BombedRoom',
+                        'expectedClass' => '\Maze\Map\BombedMaze\BombedRoom',
                     ),
                     array(
                         'method'        => 'makeDoor',
@@ -63,7 +63,7 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                             BombedMazeFactory::getInstance()->makeRoom(0),
                             BombedMazeFactory::getInstance()->makeRoom(1)
                         ),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze\BombedDoor',
+                        'expectedClass' => '\Maze\Map\BombedMaze\BombedDoor',
                     ),
                 )
             ),
@@ -78,12 +78,12 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                     array(
                         'method'        => 'makeWall',
                         'arguments'     => array(),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMaze\MagicWall',
+                        'expectedClass' => 'Maze\Map\MagicMaze\MagicWall',
                     ),
                     array(
                         'method'        => 'makeRoom',
                         'arguments'     => array(0),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMaze\MagicRoom',
+                        'expectedClass' => 'Maze\Map\MagicMaze\MagicRoom',
                     ),
                     array(
                         'method'        => 'makeDoor',
@@ -91,7 +91,7 @@ class MazeFactoryTest extends PHPUnit_Framework_TestCase
                             BombedMazeFactory::getInstance()->makeRoom(0),
                             BombedMazeFactory::getInstance()->makeRoom(1)
                         ),
-                        'expectedClass' => 'Patterns\Creational\AbstractFactory\Maze\MazeFactories\MagicMaze\MagicDoor',
+                        'expectedClass' => 'Maze\Map\MagicMaze\MagicDoor',
                     ),
                 )
             ),

@@ -2,7 +2,7 @@
 namespace MazeTests;
 
 use Exception;
-use Maze\Map\Room;
+use Maze\Map\SimpleMaze\Room;
 use Maze\Maze;
 use Maze\MazeGame;
 use PHPUnit_Framework_TestCase;

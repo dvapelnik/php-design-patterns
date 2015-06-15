@@ -1,9 +1,12 @@
 <?php
-namespace Patterns\Creational\AbstractFactory\Maze\MazeFactories\BombedMaze;
+namespace Patterns\Creational\AbstractFactory\Maze\MazeFactories;
 
-use Maze\Map\Door;
-use Maze\Map\Room;
-use Maze\Map\Wall;
+use Maze\Map\BombedMaze\BombedDoor;
+use Maze\Map\BombedMaze\BombedRoom;
+use Maze\Map\BombedMaze\BombedWall;
+use Maze\Map\SimpleMaze\Door;
+use Maze\Map\SimpleMaze\Room;
+use Maze\Map\SimpleMaze\Wall;
 use Patterns\Creational\AbstractFactory\Maze\MazeFactory;
 
 class BombedMazeFactory extends MazeFactory
