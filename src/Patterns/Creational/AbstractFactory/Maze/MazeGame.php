@@ -23,8 +23,8 @@ class MazeGame extends MazeGameOriginal
         $room2->setSide(MapSite::DIRECTION_EAST, $mazeFactory->makeWall());
         $room2->setSide(MapSite::DIRECTION_WEST, $mazeFactory->makeWall());
 
-        $maze->addRoom($room1);
-        $maze->addRoom($room2);
+        $maze->addRoom($room1, array(0, 0));
+        $maze->addRoom($room2, array(0, 1));
 
         return $maze;
     }

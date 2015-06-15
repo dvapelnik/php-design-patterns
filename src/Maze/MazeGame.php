@@ -25,8 +25,8 @@ class MazeGame
         $room2->setSide(MapSite::DIRECTION_SOUTH, new Wall());
         $room2->setSide(MapSite::DIRECTION_WEST, new Wall());
 
-        $maze->addRoom($room1);
-        $maze->addRoom($room2);
+        $maze->addRoom($room1, array(0, 0));
+        $maze->addRoom($room2, array(0, 1));
 
         return $maze;
     }

@@ -55,7 +55,7 @@ class MazeTest extends PHPUnit_Framework_TestCase
     public function testAddWrongRoomException($room)
     {
         $maze = new Maze();
-        $maze->addRoom(0, $room);
+        $maze->addRoom($room, array(0, 0));
     }
 
     public function testCountOfRooms()
@@ -65,7 +65,7 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $countOfRooms = 5;
 
         for ($i = 0; $i < $countOfRooms; $i++) {
-            $maze->addRoom(new Room($i));
+            $maze->addRoom(new Room($i), array(0, $i));
         }
 
         $this->assertEquals($countOfRooms, $maze->getCountOfRooms());
@@ -79,7 +79,7 @@ class MazeTest extends PHPUnit_Framework_TestCase
     public function testGetRoomWithWrongNumber($number)
     {
         $maze = new Maze();
-        $maze->getRoom($number);
+        $maze->getRoomByNum($number);
     }
 
     /**
@@ -88,8 +88,8 @@ class MazeTest extends PHPUnit_Framework_TestCase
     public function testRoomNotFound()
     {
         $maze = new Maze();
-        $maze->addRoom(new Room(0));
-        $num = $maze->getRoom(1);
+        $maze->addRoom(new Room(0), array(0, 0));
+        $num = $maze->getRoomByNum(1);
     }
 
     public function testGetRoomCorrect()
@@ -98,9 +98,9 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $maze = new Maze();
 
         $room = new Room($num);
-        $maze->addRoom($room);
+        $maze->addRoom($room, array(0, 0));
 
-        $this->assertEquals($room, $maze->getRoom($num));
+        $this->assertEquals($room, $maze->getRoomByNum($num));
     }
 
     public function testCreateMaze()
