@@ -48,13 +48,31 @@ class Maze
 
     public function getRoomByPlace($placeArray)
     {
-        return isset($this->_rooms[$this->makeIndex($placeArray)])
-            ? $this->_rooms[$this->makeIndex($placeArray)]
-            : false;
+        if (isset($this->_rooms[$this->makeIndex($placeArray)])) {
+            return $this->_rooms[$this->makeIndex($placeArray)];
+        } else {
+            throw new RoomNotFoundException();
+        }
+    }
+
+    public function getPlaceByNum($num)
+    {
+        try {
+            $room = $this->getRoomByNum($num);
+
+            return $this->parseIndex(array_search($room, $this->_rooms));
+        } catch(RoomNotFoundException $roomNotFoundExpt) {
+            throw $roomNotFoundExpt;
+        }
     }
 
     protected function makeIndex($placeArray)
     {
         return implode('-', $placeArray);
+    }
+
+    protected function parseIndex($index)
+    {
+        return explode('-', $index);
     }
 }

@@ -184,6 +184,39 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($room, $maze->getRoomByPlace(array(0, 0)));
     }
 
+    /**
+     * @expectedException \Maze\RoomNotFoundException
+     */
+    public function testGetRoomByPlaceRoomNotFoundException()
+    {
+        $maze = new Maze();
+        $maze->addRoom(new Room(0), array(0, 0));
+
+        $room = $maze->getRoomByPlace(array(1, 1));
+    }
+
+    public function testGetPlaceByNum()
+    {
+        $num = 0;
+        $placeArray = array(0, 0);
+
+        $maze = new Maze();
+        $maze->addRoom(new Room($num), $placeArray);
+
+        $this->assertEquals($placeArray, $maze->getPlaceByNum($num));
+    }
+
+    /**
+     * @expectedException \Maze\RoomNotFoundException
+     */
+    public function testGetPlaceByNumNotFoundException()
+    {
+        $maze = new Maze();
+        $maze->addRoom(new Room(0), array(0, 0));
+
+        $placeArray = $maze->getPlaceByNum(1);
+    }
+
     public function testMakeIndex()
     {
         $maze = new Maze();
@@ -193,5 +226,16 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $reflectedMethod->setAccessible(true);
 
         $this->assertEquals('0-0', $reflectedMethod->invoke($maze, array(0, 0)));
+    }
+
+    public function testParseIndex()
+    {
+        $maze = new Maze();
+
+        $reflectedObject = new ReflectionClass($maze);
+        $reflectedMethod = $reflectedObject->getMethod('parseIndex');
+        $reflectedMethod->setAccessible(true);
+
+        $this->assertEquals(array(0, 0), $reflectedMethod->invoke($maze, '0-0'));
     }
 }
