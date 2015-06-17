@@ -46,6 +46,12 @@ class Maze
         }
     }
 
+    /**
+     * @param $placeArray
+     *
+     * @return Room|mixed
+     * @throws RoomNotFoundException
+     */
     public function getRoomByPlace($placeArray)
     {
         if (isset($this->_rooms[$this->makeIndex($placeArray)])) {
@@ -68,11 +74,11 @@ class Maze
 
     protected function makeIndex($placeArray)
     {
-        return implode('-', $placeArray);
+        return implode('|', $placeArray);
     }
 
     protected function parseIndex($index)
     {
-        return explode('-', $index);
+        return explode('|', $index);
     }
 }

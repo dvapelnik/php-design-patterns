@@ -225,7 +225,7 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $reflectedMethod = $reflectedObject->getMethod('makeIndex');
         $reflectedMethod->setAccessible(true);
 
-        $this->assertEquals('0-0', $reflectedMethod->invoke($maze, array(0, 0)));
+        $this->assertEquals('0|0', $reflectedMethod->invoke($maze, array(0, 0)));
     }
 
     public function testParseIndex()
@@ -236,6 +236,6 @@ class MazeTest extends PHPUnit_Framework_TestCase
         $reflectedMethod = $reflectedObject->getMethod('parseIndex');
         $reflectedMethod->setAccessible(true);
 
-        $this->assertEquals(array(0, 0), $reflectedMethod->invoke($maze, '0-0'));
+        $this->assertEquals(array(0, 0), $reflectedMethod->invoke($maze, '0|0'));
     }
 }
