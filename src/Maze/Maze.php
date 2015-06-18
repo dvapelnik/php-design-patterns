@@ -29,6 +29,13 @@ class Maze
         return count($this->_rooms);
     }
 
+    /**
+     * @param $num
+     *
+     * @return Room|mixed
+     * @throws MazeException
+     * @throws RoomNotFoundException
+     */
     public function getRoomByNum($num)
     {
         if (!is_int($num)) {
