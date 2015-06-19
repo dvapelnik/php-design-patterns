@@ -66,7 +66,10 @@ class MazePrototypeFactory implements MazeFactoryInterface
     public function makeDoor($room1, $room2)
     {
         $door = $this->_prototypeDoor->makeClone();
-        $door->initialize($room1, $room2);
+        $door->initialize(array(
+            'room1' => $room1,
+            'room2' => $room2,
+        ));
 
         return $door;
     }
