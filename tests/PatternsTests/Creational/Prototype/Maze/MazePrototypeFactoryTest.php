@@ -47,6 +47,18 @@ class MazePrototypeFactoryTest extends PHPUnit_Framework_TestCase
                     'door' => 'Patterns\Creational\Prototype\Maze\Map\MagicMaze\MagicDoor',
                 )
             ),
+            array(
+                'doorDirections'  => array(
+                    0 => MapSite::DIRECTION_EAST,
+                    1 => MapSite::DIRECTION_WEST,
+                ),
+                'expectedClasses' => array(
+                    'maze' => 'Patterns\Creational\Prototype\Maze\Maze',
+                    'wall' => 'Patterns\Creational\Prototype\Maze\Map\SimpleMaze\Wall',
+                    'room' => 'Patterns\Creational\Prototype\Maze\Map\BombedMaze\BombedRoom',
+                    'door' => 'Patterns\Creational\Prototype\Maze\Map\MagicMaze\MagicDoor',
+                )
+            ),
         );
     }
 
