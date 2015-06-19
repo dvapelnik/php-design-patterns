@@ -6,10 +6,10 @@ use Maze\Map\MapSiteException;
 
 class Door extends MapSite
 {
-    private $_room1;
-    private $_room2;
+    protected $_room1;
+    protected $_room2;
 
-    private $_isOpen;
+    protected $_isOpen;
 
     public function __construct(Room $room1, Room $room2)
     {

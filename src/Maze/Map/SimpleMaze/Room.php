@@ -7,8 +7,8 @@ use Maze\Map\MapSiteException;
 
 class Room extends MapSite
 {
-    private $_roomNumber;
-    private $_sides = array();
+    protected $_roomNumber;
+    protected $_sides = array();
 
     public function __construct($number)
     {
