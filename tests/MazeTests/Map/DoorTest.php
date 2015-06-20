@@ -24,4 +24,10 @@ class DoorTest extends PHPUnit_Framework_TestCase
 
         $door = new Door($room, $room);
     }
+
+    public function testConstructorWithoutArguments(){
+        $door = new Door;
+
+        $this->assertInstanceOf('\Maze\Map\SimpleMaze\Door', $door);
+    }
 }

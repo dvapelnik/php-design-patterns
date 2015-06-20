@@ -8,7 +8,7 @@ use PHPUnit_Framework_TestCase;
 
 class RoomTest extends PHPUnit_Framework_TestCase
 {
-    public function randomStringProvider()
+    public function wrongConstructorArgumentsProvider()
     {
         return array(
             array('asdasd'),
@@ -19,7 +19,6 @@ class RoomTest extends PHPUnit_Framework_TestCase
                 function () {
                 }
             ),
-            array(null),
         );
     }
 
@@ -48,7 +47,7 @@ class RoomTest extends PHPUnit_Framework_TestCase
     /**
      * @expectedException Exception
      * @expectedExceptionMessage First argument should be a number
-     * @dataProvider randomStringProvider
+     * @dataProvider wrongConstructorArgumentsProvider
      */
     public function testConstructorShouldGenerateException($arg)
     {
@@ -58,6 +57,13 @@ class RoomTest extends PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $room = new Room(0);
+
+        $this->assertInstanceOf('Maze\Map\SimpleMaze\Room', $room);
+    }
+
+    public function testConstructorWithoutArguments()
+    {
+        $room = new Room();
 
         $this->assertInstanceOf('Maze\Map\SimpleMaze\Room', $room);
     }
@@ -75,7 +81,7 @@ class RoomTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider randomStringProvider
+     * @dataProvider wrongConstructorArgumentsProvider
      * @expectedException \Exception
      * @expectedExceptionMessage Direction should be a number
      */

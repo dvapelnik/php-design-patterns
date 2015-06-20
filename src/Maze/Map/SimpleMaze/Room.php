@@ -10,13 +10,15 @@ class Room extends MapSite
     protected $_roomNumber;
     protected $_sides = array();
 
-    public function __construct($number)
+    public function __construct($number = null)
     {
-        if (false === is_integer($number)) {
-            throw new Exception('First argument should be a number');
-        }
+        if (null !== $number) {
+            if (false === is_integer($number)) {
+                throw new Exception('First argument should be a number');
+            }
 
-        $this->_roomNumber = $number;
+            $this->_roomNumber = $number;
+        }
     }
 
     public function getSide($direction)
