@@ -72,12 +72,16 @@ class MazePrototypeFactoryTest extends PHPUnit_Framework_TestCase
     {
         $mazeGame = new MazeGame();
 
+        $prototypeMaze = new $classes['maze'];
+        $prototypeWall = new $classes['wall'];
+        $prototypeRoom = new $classes['room'];
+        $prototypeDoor = new $classes['door'];
+
         $maze = $mazeGame->createMaze(new MazePrototypeFactory(
-            new $classes['maze'],
-            new $classes['wall'],
-            new $classes['room'](0),
-            new $classes['door'](new $classes['room'](0), new $classes['room'](1))
+            $prototypeMaze, $prototypeWall, $prototypeRoom, $prototypeDoor
         ));
+
+        $this->assertNotSame($prototypeMaze, $maze);
 
         $this->assertInstanceOf($classes['maze'], $maze);
 
@@ -89,11 +93,18 @@ class MazePrototypeFactoryTest extends PHPUnit_Framework_TestCase
 
             for ($i = 0; $i < 4; $i++) {
                 if ($i != $doorDirections[$num]) {
+                    $currentWallInCycle = $room->getSide($i);
+
                     $this->assertInstanceOf(
-                        $classes['wall'], $room->getSide($i));
+                        $classes['wall'], $currentWallInCycle);
+                    $this->assertNotSame($prototypeWall, $currentWallInCycle);
                 } else {
+                    $currentDoorInCycle = $room->getSide($i);
+                    $doors[$num] = $currentDoorInCycle;
+
                     $this->assertInstanceOf(
-                        $classes['door'], $doors[$num] = $room->getSide($i));
+                        $classes['door'], $currentDoorInCycle);
+                    $this->assertNotSame($prototypeDoor, $currentDoorInCycle);
                 }
             }
         }
