@@ -9,7 +9,7 @@ class Room extends RoomOriginal implements CloneInterface
 
     public function makeClone()
     {
-        return new static($this->getRoomNumber());
+        return new static();
     }
 
     public function initialize($options = array())

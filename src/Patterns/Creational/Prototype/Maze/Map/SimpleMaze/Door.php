@@ -9,7 +9,7 @@ class Door extends DoorOriginal implements CloneInterface
 
     public function makeClone()
     {
-        return new static($this->_room1, $this->_room2);
+        return new static();
     }
 
     public function initialize($options = array())
