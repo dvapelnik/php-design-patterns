@@ -1,9 +1,7 @@
 <?php
 namespace Patterns\Creational\Prototype;
 
-interface CloneInterface
+interface CloneInterface extends InitializeInterface
 {
     public function makeClone();
-
-    public function initialize($options = array());
 }
