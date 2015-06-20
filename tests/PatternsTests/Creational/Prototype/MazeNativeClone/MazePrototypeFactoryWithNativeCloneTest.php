@@ -85,7 +85,7 @@ class MazePrototypeFactoryWithNativeCloneTest extends \PHPUnit_Framework_TestCas
         ));
 
         $this->assertInstanceOf($classes['maze'], $maze);
-        $this->assertNotEquals($mazePrototype, $maze);
+        $this->assertNotSame($mazePrototype, $maze);
 
         $doors = array();
 
