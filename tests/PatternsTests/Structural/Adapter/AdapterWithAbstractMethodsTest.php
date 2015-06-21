@@ -1,7 +1,7 @@
 <?php
 namespace PatternsTests\Structural\Adapter;
 
-use Patterns\Structural\Adapter\AdapterWithAbstractMethods\StructurePrinterInterface;
+use Patterns\Structural\Adapter\StructurePrinterInterface;
 use PHPUnit_Framework_TestCase;
 
 class AdapterWithAbstractMethodsTest extends PHPUnit_Framework_TestCase

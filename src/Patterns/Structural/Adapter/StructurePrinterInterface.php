@@ -1,5 +1,5 @@
 <?php
-namespace Patterns\Structural\Adapter\AdapterWithAbstractMethods;
+namespace Patterns\Structural\Adapter;
 
 interface StructurePrinterInterface
 {
