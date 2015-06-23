@@ -17,7 +17,8 @@
     }
   },
   "scripts": {
-    "tests": "php vendor/bin/phpunit --coverage-html ./public/coverege/"
+    "tests-covered": "php vendor/bin/phpunit --coverage-html ./public/coverege/",
+    "tests": "php vendor/bin/phpunit --verbose --colors --no-globals-backup"
   },
   "require": {
     "php": ">=5.5.9",
