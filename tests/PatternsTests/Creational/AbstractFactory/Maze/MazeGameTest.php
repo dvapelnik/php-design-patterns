@@ -34,6 +34,6 @@ class MazeGameTest extends PHPUnit_Framework_TestCase
      */
     public function testCreateMaze($mazeFactory)
     {
-        $this->assertInstanceOf('\Maze\Maze', $this->_mazeGame->createMaze($mazeFactory));
+        $this->assertInstanceOf('\Maze\Maze', $this->_mazeGame->createMazeWithFactory($mazeFactory));
     }
 }

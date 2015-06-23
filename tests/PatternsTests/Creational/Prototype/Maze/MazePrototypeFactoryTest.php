@@ -77,7 +77,7 @@ class MazePrototypeFactoryTest extends PHPUnit_Framework_TestCase
         $prototypeRoom = new $classes['room'];
         $prototypeDoor = new $classes['door'];
 
-        $maze = $mazeGame->createMaze(new MazePrototypeFactory(
+        $maze = $mazeGame->createMazeWithFactory(new MazePrototypeFactory(
             $prototypeMaze, $prototypeWall, $prototypeRoom, $prototypeDoor
         ));
 

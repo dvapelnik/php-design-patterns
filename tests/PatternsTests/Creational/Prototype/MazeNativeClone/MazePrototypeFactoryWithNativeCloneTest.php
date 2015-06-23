@@ -77,7 +77,7 @@ class MazePrototypeFactoryWithNativeCloneTest extends \PHPUnit_Framework_TestCas
         $roomPrototype = new $classes['room'];
         $doorPrototype = new $classes['door'];
 
-        $maze = $mazeGame->createMaze(new MazePrototypeFactoryWithNativeClone(
+        $maze = $mazeGame->createMazeWithFactory(new MazePrototypeFactoryWithNativeClone(
             $mazePrototype,
             $wallPrototype,
             $roomPrototype,
