@@ -13,7 +13,9 @@
       "Patterns\\": "src\\Patterns",
       "PatternsTests\\": "tests\\PatternsTests",
       "Maze\\": "src\\Maze",
-      "MazeTests\\": "tests\\MazeTests"
+      "MazeTests\\": "tests\\MazeTests",
+      "Tree\\": "src\\Tree",
+      "TreeTests\\": "tests\\TreeTests"
     }
   },
   "scripts": {
