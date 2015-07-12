@@ -5,6 +5,9 @@ class Singleton implements SingletonInterface
 {
     protected static $_instances;
 
+    /**
+     * @return static
+     */
     public static function GetInstance()
     {
         $calledClass = get_called_class();
