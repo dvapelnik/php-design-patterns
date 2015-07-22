@@ -2,6 +2,7 @@
 namespace PatternsTests\Behavioral\Command\PrintCommand;
 
 use Patterns\Behavioral\Command\Executor;
+use Patterns\Behavioral\Command\PrintCommand\MacroCommand;
 use Patterns\Behavioral\Command\PrintCommand\Printer;
 use Patterns\Behavioral\Command\PrintCommand\SquareBracketsPrinterDecorator;
 use PHPUnit_Framework_TestCase;
@@ -14,6 +15,8 @@ class WorkExampleTest extends PHPUnit_Framework_TestCase
             'foo',
             'bar',
             'baz',
+            'beez',
+            'buzz',
         );
 
         $executor = new Executor();
@@ -39,6 +42,15 @@ class WorkExampleTest extends PHPUnit_Framework_TestCase
                     new Printer($words[2]))));
         $executor->commandRun();
         $expectedString .= '[[' . $words[2] . ']]';
+
+        $macroCommand = new MacroCommand();
+        $macroCommand->addCommand(new Printer($words[3]));
+        $macroCommand->addCommand(
+            new SquareBracketsPrinterDecorator(
+                new Printer($words[4])));
+        $executor->setCommand($macroCommand);
+        $executor->commandRun();
+        $expectedString .= $words[3] . '[' . $words[4] . ']';
 
         $this->expectOutputString($expectedString);
     }
