@@ -82,7 +82,7 @@ class NodeTest extends PHPUnit_Framework_TestCase
                 'incrementsCount' => rand(0, 4),
                 'incrementDelta'  => rand(1, 3),
             );
-        }, range(0, 2));
+        }, range(0, 5));
     }
 
     public function testGetItems()
