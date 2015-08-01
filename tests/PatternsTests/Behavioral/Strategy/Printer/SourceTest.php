@@ -2,6 +2,8 @@
 namespace PatternsTests\Behavioral\Strategy\Printer;
 
 use Patterns\Behavioral\Strategy\Printer\Source;
+use Patterns\Behavioral\Strategy\Printer\SquareBracketWrappedPrintStrategy;
+use Patterns\Behavioral\Strategy\Printer\TripleDottedWrappedPrintStrategy;
 use PHPUnit_Framework_TestCase;
 use ReflectionProperty;
 
@@ -88,5 +90,20 @@ class SourceTest extends PHPUnit_Framework_TestCase
         $source->setPrintStrategy(null);
 
         $this->assertEquals($this->_text, $source->getFormattedText());
+    }
+
+    /**
+     * @test
+     */
+    public function workExample()
+    {
+        $source = new Source('Foo Bar');
+        $this->assertEquals('Foo Bar', $source->getFormattedText());
+
+        $source->setPrintStrategy(new SquareBracketWrappedPrintStrategy());
+        $this->assertEquals('[Foo Bar]', $source->getFormattedText());
+
+        $source->setPrintStrategy(new TripleDottedWrappedPrintStrategy());
+        $this->assertEquals('...Foo Bar...', $source->getFormattedText());
     }
 }
