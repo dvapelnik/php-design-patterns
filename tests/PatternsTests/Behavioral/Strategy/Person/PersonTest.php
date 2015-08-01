@@ -94,4 +94,16 @@ class PersonTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expectedAppealPrefix . $this->_fullName, $person->getAppeal());
     }
+
+    /**
+     * @test
+     */
+    public function workExample()
+    {
+        $johnDoe = new Person(Person::PERSON_SEX_MALE, 'John Doe');
+        $this->assertEquals('Mr. John Doe', $johnDoe->getAppeal());
+
+        $judyDoe = new Person(Person::PERSON_SEX_FEMALE, 'Judy Doe');
+        $this->assertEquals('Ms. Judy Doe', $judyDoe->getAppeal());
+    }
 }
