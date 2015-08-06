@@ -1,7 +1,7 @@
 <?php
 namespace Patterns\Structural\Facade\CountyFacade;
 
-use Patterns\Creational\Singleton\Singleton;
+use Patterns\Creational\Singleton\Classic\Singleton;
 use Patterns\Structural\Bridge\ListRenderer\Lists\AbstractList;
 use Patterns\Structural\Facade\CountyFacade\Counters\CounterInterface;
 use Patterns\Structural\Facade\CountyFacade\LIstFacadeExceptions\FacadeIsNotConfiguredException;

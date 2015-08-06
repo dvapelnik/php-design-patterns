@@ -2,7 +2,7 @@
 namespace Patterns\Behavioral\Strategy\Person;
 
 use Exception;
-use Patterns\Creational\Singleton\SingletonTrait;
+use Patterns\Creational\Singleton\Classic\SingletonTrait;
 
 abstract class AbstractAppealStrategy
 {

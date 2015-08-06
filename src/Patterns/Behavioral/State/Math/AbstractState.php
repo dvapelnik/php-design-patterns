@@ -1,7 +1,7 @@
 <?php
 namespace Patterns\Behavioral\State\Math;
 
-use Patterns\Creational\Singleton\SingletonTrait;
+use Patterns\Creational\Singleton\Classic\SingletonTrait;
 
 abstract class AbstractState
 {

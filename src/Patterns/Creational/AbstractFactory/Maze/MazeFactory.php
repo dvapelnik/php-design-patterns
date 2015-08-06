@@ -5,8 +5,7 @@ use Maze\Map\SimpleMaze\Door;
 use Maze\Map\SimpleMaze\Room;
 use Maze\Map\SimpleMaze\Wall;
 use Maze\Maze;
-use Patterns\Creational\AbstractFactory\Maze\MazeFactoryInterface;
-use Patterns\Creational\Singleton\SingletonTrait;
+use Patterns\Creational\Singleton\Classic\SingletonTrait;
 
 /**
  * Class MazeFactory

@@ -1,7 +1,7 @@
 <?php
 namespace Patterns\Structural\Flyweight\Characters;
 
-use Patterns\Creational\Singleton\Singleton;
+use Patterns\Creational\Singleton\Classic\Singleton;
 
 class FlyweightFactory extends Singleton
 {

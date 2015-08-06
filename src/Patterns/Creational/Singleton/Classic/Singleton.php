@@ -1,5 +1,5 @@
 <?php
-namespace Patterns\Creational\Singleton;
+namespace Patterns\Creational\Singleton\Classic;
 
 class Singleton implements SingletonInterface
 {

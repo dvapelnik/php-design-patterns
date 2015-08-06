@@ -1,9 +1,9 @@
 <?php
 namespace PatternsTests\Creational\Singleton;
 
-use Patterns\Creational\Singleton\Singleton;
-use Patterns\Creational\Singleton\SingletonA;
-use Patterns\Creational\Singleton\SingletonB;
+use Patterns\Creational\Singleton\Classic\Singleton;
+use Patterns\Creational\Singleton\Classic\SingletonA;
+use Patterns\Creational\Singleton\Classic\SingletonB;
 use PHPUnit_Framework_TestCase;
 use ReflectionMethod;
 
@@ -28,10 +28,10 @@ class SingletonTest extends PHPUnit_Framework_TestCase
     public function testClassNames()
     {
         $singletonA = SingletonA::GetInstance();
-        $this->assertInstanceOf('Patterns\Creational\Singleton\SingletonA', $singletonA);
+        $this->assertInstanceOf('Patterns\Creational\Singleton\Classic\SingletonA', $singletonA);
 
         $singletonB = SingletonB::GetInstance();
-        $this->assertInstanceOf('Patterns\Creational\Singleton\SingletonB', $singletonB);
+        $this->assertInstanceOf('Patterns\Creational\Singleton\Classic\SingletonB', $singletonB);
     }
 
     public function testPrivateCloneMethod()
@@ -39,7 +39,8 @@ class SingletonTest extends PHPUnit_Framework_TestCase
         // Only for fully covering code by tests
         $singleton = Singleton::getInstance();
 
-        $reflectedSingletonCloneMethod = new ReflectionMethod('\Patterns\Creational\Singleton\Singleton', '__clone');
+        $reflectedSingletonCloneMethod = new ReflectionMethod('\Patterns\Creational\Singleton\Classic\Singleton',
+            '__clone');
         $reflectedSingletonCloneMethod->setAccessible('true');
 
         $reflectedSingletonCloneMethod->invoke($singleton);
@@ -50,7 +51,8 @@ class SingletonTest extends PHPUnit_Framework_TestCase
         // Only for fully covering code by tests
         $singleton = Singleton::getInstance();
 
-        $reflectedSingletonWakeUpMethod = new ReflectionMethod('\Patterns\Creational\Singleton\Singleton', '__wakeup');
+        $reflectedSingletonWakeUpMethod = new ReflectionMethod('\Patterns\Creational\Singleton\Classic\Singleton',
+            '__wakeup');
         $reflectedSingletonWakeUpMethod->setAccessible('true');
 
         $reflectedSingletonWakeUpMethod->invoke($singleton);
