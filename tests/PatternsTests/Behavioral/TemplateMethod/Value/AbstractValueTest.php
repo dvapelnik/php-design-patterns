@@ -8,6 +8,8 @@ use ReflectionProperty;
 
 class AbstractValueTest extends PHPUnit_Framework_TestCase
 {
+    private $className = '\Patterns\Behavioral\TemplateMethod\Value\AbstractValue';
+
     private $_value;
     /** @var  ReflectionProperty */
     private $_reflectedValueProp;
@@ -15,8 +17,9 @@ class AbstractValueTest extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->_reflectedValueProp = new ReflectionProperty(
-            '\Patterns\Behavioral\TemplateMethod\Value\AbstractValue',
-            '_value');
+            $this->className,
+            '_value'
+        );
         $this->_reflectedValueProp->setAccessible(true);
 
         $this->_value = 2;
@@ -24,18 +27,13 @@ class AbstractValueTest extends PHPUnit_Framework_TestCase
 
     public function testConstructor()
     {
-        $className = '\Patterns\Behavioral\TemplateMethod\Value\AbstractValue';
-
-        $mock = $this->getMockBuilder($className)
-            ->setConstructorArgs(array($this->_value))
-            ->setMethods(array('_doSetValue'))
-            ->getMockForAbstractClass();
+        $mock = $this->makeMock();
 
         $mock->expects($this->once())
             ->method('_doSetValue')
             ->with($this->equalTo($this->_value));
 
-        $reflectedAbstractValueClass = new ReflectionClass($className);
+        $reflectedAbstractValueClass = new ReflectionClass($this->className);
         $reflectedAbstractValueConstructor = $reflectedAbstractValueClass->getConstructor();
         $reflectedAbstractValueConstructor->invoke($mock, $this->_value);
 
@@ -53,12 +51,7 @@ class AbstractValueTest extends PHPUnit_Framework_TestCase
      */
     public function testSetValue($mock)
     {
-        $className = '\Patterns\Behavioral\TemplateMethod\Value\AbstractValue';
-
-        $mock = $this->getMockBuilder($className)
-            ->setConstructorArgs(array($this->_value))
-            ->setMethods(array('_doSetValue'))
-            ->getMockForAbstractClass();
+        $mock = $this->makeMock();
 
         $mock->expects($this->once())
             ->method('_doSetValue')
@@ -89,5 +82,15 @@ class AbstractValueTest extends PHPUnit_Framework_TestCase
     public function testGetCountOfSetValue($mock)
     {
         $this->assertEquals(1, $mock->getCountOfSetValue());
+    }
+
+    private function makeMock()
+    {
+        $mock = $this->getMockBuilder($this->className)
+            ->setConstructorArgs(array($this->_value))
+            ->setMethods(array('_doSetValue'))
+            ->getMockForAbstractClass();
+
+        return $mock;
     }
 }
