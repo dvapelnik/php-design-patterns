@@ -1,7 +1,7 @@
 <?php
 namespace PatternsTests\Structural\Decorator\String;
 
-use Patterns\Structural\Decorator\String\String;
+use Patterns\Structural\Decorator\String\MyString;
 use Patterns\Structural\Decorator\String\ToCamelCaseDecorator;
 use PHPUnit_Framework_TestCase;
 
@@ -20,6 +20,6 @@ class ToCamelCaseDecoratorTest extends PHPUnit_Framework_TestCase
      */
     public function testDecoration($text, $expected)
     {
-        $this->assertEquals($expected, (new ToCamelCaseDecorator(new String($text)))->getText());
+        $this->assertEquals($expected, (new ToCamelCaseDecorator(new MyString($text)))->getText());
     }
 }

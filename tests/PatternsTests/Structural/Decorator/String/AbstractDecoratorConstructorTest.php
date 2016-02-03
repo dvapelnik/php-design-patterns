@@ -2,7 +2,7 @@
 namespace PatternsTests\Structural\Decorator\String;
 
 use Patterns\Structural\Decorator\String\AllToLowerCaseDecorator;
-use Patterns\Structural\Decorator\String\String;
+use Patterns\Structural\Decorator\String\MyString;
 use PHPUnit_Framework_TestCase;
 use ReflectionClass;
 use ReflectionProperty;
@@ -40,7 +40,7 @@ class AbstractDecoratorConstructorTest extends PHPUnit_Framework_TestCase
     {
         $_text = 'somE StRinG';
 
-        $string = new String($_text);
+        $string = new MyString($_text);
 
         $decorator = new $decoratorClass($string);
 

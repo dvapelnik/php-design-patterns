@@ -2,7 +2,7 @@
 namespace PatternsTests\Structural\Decorator\String;
 
 use Patterns\Structural\Decorator\String\AllToLowerCaseDecorator;
-use Patterns\Structural\Decorator\String\String;
+use Patterns\Structural\Decorator\String\MyString;
 use PHPUnit_Framework_TestCase;
 
 class AllToLowerCaseDecoratorTest extends PHPUnit_Framework_TestCase
@@ -19,6 +19,6 @@ class AllToLowerCaseDecoratorTest extends PHPUnit_Framework_TestCase
      */
     public function testDecoration($text, $expected)
     {
-        $this->assertEquals($expected, (new AllToLowerCaseDecorator(new String($text)))->getText());
+        $this->assertEquals($expected, (new AllToLowerCaseDecorator(new MyString($text)))->getText());
     }
 }

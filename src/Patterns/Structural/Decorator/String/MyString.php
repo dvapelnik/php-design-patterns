@@ -1,7 +1,7 @@
 <?php
 namespace Patterns\Structural\Decorator\String;
 
-class String implements GetTextInterface
+class MyString implements GetTextInterface
 {
     private $_text;
 
