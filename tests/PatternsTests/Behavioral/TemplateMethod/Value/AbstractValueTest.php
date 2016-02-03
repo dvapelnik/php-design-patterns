@@ -53,6 +53,13 @@ class AbstractValueTest extends PHPUnit_Framework_TestCase
      */
     public function testSetValue($mock)
     {
+        $className = '\Patterns\Behavioral\TemplateMethod\Value\AbstractValue';
+
+        $mock = $this->getMockBuilder($className)
+            ->setConstructorArgs(array($this->_value))
+            ->setMethods(array('_doSetValue'))
+            ->getMockForAbstractClass();
+
         $mock->expects($this->once())
             ->method('_doSetValue')
             ->with($this->equalTo($this->_value * 2));
